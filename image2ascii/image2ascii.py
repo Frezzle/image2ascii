@@ -24,11 +24,8 @@ class ImageConverter:
     def __init__(self, image_reader):
         self.__image_reader = image_reader
 
-    def print_as_ascii(self):
+    def print_as_ascii(self, invert_colours, x_step=3, y_step=6):
         width, height = self.__image_reader.get_image_size()
-        x_step = 3
-        y_step = 6
-        sys.stdout.write('width/height/xstep/ystep={}/{}/{}/{}\n'.format(width, height, x_step, y_step))
         for y in range(0, height, y_step):
             for x in range(0, width, x_step):
                 sum_red = 0
@@ -43,11 +40,11 @@ class ImageConverter:
                         sum_green += rgb[2]
                         pixels += 1
                 grayscale_value = (sum_red + sum_blue + sum_green) / (pixels * 3)
-                self.__print_color_as_ascii(grayscale_value, True)
+                self.__print_color_as_ascii(grayscale_value, invert_colours)
             sys.stdout.write('\n')
 
     @staticmethod
-    def __print_color_as_ascii(color_value, invert_colours=False):
+    def __print_color_as_ascii(color_value, invert_colours):
         ascii_chars = '@&%#(/*,. '
         if invert_colours:
             ascii_chars = ascii_chars[::-1]
@@ -76,10 +73,9 @@ class ImageConverter:
         sys.stdout.write(ascii_char)
 
 
-def convert():
-    ir = ImageReader('penguin.png')
+def convert(image_path='penguin.png', invert_colours=False, x_step=3, y_step=6):
+    ir = ImageReader(image_path)
     converter = ImageConverter(ir)
-    converter.print_as_ascii()
+    converter.print_as_ascii(invert_colours, x_step, y_step)
 
-# TODO: parameterize step values and invert option.
 # TODO: refactor to be able to work as a library/module as well as a script.

@@ -14,15 +14,22 @@ In Python 3.x or 2.7.x:
 
 ```
 import image2ascii
-
-image2ascii.convert()
+image2ascii.convert('/path/to/image')
 ```
 
 ## Customize output
 
-For now, edit line 80 to use your own image.
+Reduce/increase `x_step` and `y_step` for more/less detail in the ASCII output:
 
-Reduce/increase `x_step` and `y_step` variables for more/less detail in the ASCII output.
+```
+image2ascii.convert('/path/to/image', x_step=5, y_step=10)
+```
+
+Colours can be inverted:
+
+```
+image2ascii.convert('/path/to/image', invert_colours=True)
+```
 
 ## Attribution
 
