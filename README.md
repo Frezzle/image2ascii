@@ -1,22 +1,31 @@
 # image2ascii
 
-## Dependencies
+## Installing
 
-- Python 3 (not tested with Python 2)
-- [Pillow](https://github.com/python-pillow/Pillow)
+```
+git clone https://github.com/Frezzle/image2ascii
+cd image2ascii
+pip install .
+```
 
 ## Usage
 
-For now, edit line 78 to use your own image and run:
+In Python 3.x or 2.7.x:
 
 ```
-python image2ascii.py
+import image2ascii
+
+image2ascii.convert()
 ```
+
+## Customize output
+
+For now, edit line 80 to use your own image.
 
 Reduce/increase `x_step` and `y_step` variables for more/less detail in the ASCII output.
 
 ## Attribution
 
-Default penguin image from https://pixabay.com/en/tux-penguin-animal-cute-linux-158547.
+[Default penguin image](https://pixabay.com/en/tux-penguin-animal-cute-linux-158547)
 
-ASCII character selection inspired by https://manytools.org/hacker-tools/convert-images-to-ascii-art.
+[ASCII character set inspiration](https://manytools.org/hacker-tools/convert-images-to-ascii-art)

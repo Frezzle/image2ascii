@@ -1,0 +1,1 @@
+from .image2ascii import convert

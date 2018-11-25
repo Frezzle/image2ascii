@@ -76,9 +76,10 @@ class ImageConverter:
         sys.stdout.write(ascii_char)
 
 
-ir = ImageReader('penguin.png')
-converter = ImageConverter(ir)
-converter.print_as_ascii()
+def convert():
+    ir = ImageReader('penguin.png')
+    converter = ImageConverter(ir)
+    converter.print_as_ascii()
 
 # TODO: parameterize step values and invert option.
 # TODO: refactor to be able to work as a library/module as well as a script.
