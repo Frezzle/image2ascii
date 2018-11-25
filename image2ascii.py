@@ -1,3 +1,4 @@
+import sys
 from PIL import Image
 
 
@@ -27,7 +28,7 @@ class ImageConverter:
         width, height = self.__image_reader.get_image_size()
         x_step = 3
         y_step = 6
-        print(f"width/height/xstep/ystep={width}/{height}/{x_step}/{y_step}")
+        sys.stdout.write('width/height/xstep/ystep={}/{}/{}/{}\n'.format(width, height, x_step, y_step))
         for y in range(0, height, y_step):
             for x in range(0, width, x_step):
                 sum_red = 0
@@ -43,7 +44,7 @@ class ImageConverter:
                         pixels += 1
                 grayscale_value = (sum_red + sum_blue + sum_green) / (pixels * 3)
                 self.__print_color_as_ascii(grayscale_value, True)
-            print()
+            sys.stdout.write('\n')
 
     @staticmethod
     def __print_color_as_ascii(color_value, invert_colours=False):
@@ -72,7 +73,7 @@ class ImageConverter:
         else:
             ascii_char = ascii_chars[9]
 
-        print(ascii_char, end='')
+        sys.stdout.write(ascii_char)
 
 
 ir = ImageReader('penguin.png')
